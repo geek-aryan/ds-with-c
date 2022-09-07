@@ -31,7 +31,7 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="CONVRT_IN_TO_PREFIX.c">
+		<Unit filename="CONVRT_IN_TO_POSTFIX.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Extensions />
