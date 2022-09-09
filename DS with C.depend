@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1385316878 source:e:\chuja ds workspace\ds with c\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1661674089 source:e:\chuja ds workspace\ds with c\stack.c
+	<stdio.h>
+
