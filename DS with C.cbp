@@ -31,6 +31,7 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+<<<<<<< HEAD
 		<Unit filename="Stack.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -39,5 +40,11 @@
 			<envvars />
 			<debugger />
 		</Extensions>
+=======
+		<Unit filename="CONVRT_IN_TO_PREFIX.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Extensions />
+>>>>>>> dadd81906b75cf94c342c7d5a1f62e9dc21144c1
 	</Project>
 </CodeBlocks_project_file>
