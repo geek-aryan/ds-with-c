@@ -23,4 +23,10 @@
 1662578657 source:d:\my work\ds\chuja ds workspace\chuja ds workspace\ds with c\convrt_in_to_prefix.c
 	<stdio.h>
 
+<<<<<<< HEAD
 >>>>>>> dadd81906b75cf94c342c7d5a1f62e9dc21144c1
+=======
+1662632635 source:d:\my work\ds\chuja ds workspace\chuja ds workspace\ds with c\convrt_in_to_postfix_2.0.c
+	<stdio.h>
+
+>>>>>>> 582d568abb453605751e020b5d8efdba31096370
