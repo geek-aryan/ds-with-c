@@ -31,11 +31,7 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-<<<<<<< HEAD
-		<Unit filename="FULL_CONVRT_IN_TO_POSTFIX.c">
-=======
-		<Unit filename="queue1.c">
->>>>>>> 54f7e50cc122379867fe249835826aeef7b92238
+		<Unit filename="CircularQueue.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Extensions>
