@@ -31,7 +31,7 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="FULL_CONVRT_IN_TO_POSTFIX.c">
+		<Unit filename="queue1.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Extensions>

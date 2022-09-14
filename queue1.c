@@ -45,5 +45,5 @@ int del(struct Queue* q)
         return -1;
     }
     int x=q->arr[q->front++];
-    return ;
+    return x;
 }
