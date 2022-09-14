@@ -39,7 +39,7 @@ void insert(struct Queue* q,int x)
 }
 int del(struct Queue* q)
 {
-    if(q->front==5)
+    if(q->front>q->rear)
     {
         printf("Queue is Underflow\n");
         return -1;
