@@ -1,6 +1,4 @@
-<<<<<<< HEAD
 
-=======
 #include<stdio.h>
 #include<string.h>
 struct Stack
@@ -128,4 +126,4 @@ void convert(char* postfix,char* infix)
     }
     postfix[j]='\0';
 }
->>>>>>> 3e1481dc3d2f40eb452889b791578647e4ee7c64
+
