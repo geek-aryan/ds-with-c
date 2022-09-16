@@ -31,7 +31,7 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="CircularQueue.c">
+		<Unit filename="LinkedList.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Extensions>
