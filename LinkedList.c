@@ -21,7 +21,15 @@ int main()
     }
     display(start);
     printf("\nCount of node is: %d",count_node(start));
-    printf("\nsearched: %d",search_node(start,7));
+
+    x=search_node(start,78);
+    if(x==0)
+        printf("List is empty\n");
+    else if(x==-1)
+        printf("\nno element found!!\n");
+    else
+        printf("\nserached element position is: %d\n",x);
+
     return 0;
 }
 void append(struct node** ps,int x)
