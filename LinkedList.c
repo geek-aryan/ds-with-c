@@ -6,8 +6,9 @@ struct node
     struct node* next;
 };
 void append(struct node**,int);
-void display(const struct node**);
-int count_node(const struct node**);
+void display(struct node*);
+int count_node(struct node*);
+int search_node(struct node*,int);
 int main()
 {
     struct node* start=NULL;
@@ -18,8 +19,9 @@ int main()
         scanf("%d",&x);
         append(&start,x);
     }
-    display(&start);
-    printf("\nCount of node is: %d",count_node(&start));
+    display(start);
+    printf("\nCount of node is: %d",count_node(start));
+    printf("\nsearched: %d",search_node(start,7));
     return 0;
 }
 void append(struct node** ps,int x)
@@ -40,23 +42,40 @@ void append(struct node** ps,int x)
     }
     temp->next=p;
 }
-void display(const struct node** ps)
+void display(struct node* p)
 {
-    struct node *temp=*ps;
-    while(temp!=NULL)
+    if(p==NULL)
     {
-        printf("%d ",temp->data);
-        temp=temp->next;
+        printf("List is Empty\n");
+        return;
+    }
+    while(p!=NULL)
+    {
+        printf("%d ",p->data);
+        p=p->next;
     }
 }
-int count_node(const struct node** ps)
+int count_node(struct node* p)
 {
     int c=0;
-    struct node *temp=*ps;
-    while(temp!=NULL)
+    while(p!=NULL)
     {
-        temp=temp->next;
+        p=p->next;
         c++;
     }
     return c;
+}
+int search_node(struct node* p,int x)
+{
+    int pos=0;
+    if(p==NULL)
+        return 0;
+    while(p!=NULL)
+    {
+        pos++;
+        if(p->data==x)
+            return pos;
+        p=p->next;
+    }
+    return -1;
 }
