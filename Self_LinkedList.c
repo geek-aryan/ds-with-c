@@ -19,14 +19,13 @@ int main()
     int x;
     for(int i=1;i<=5;i++)
     {
-        printf("Enter a data to append in list: ");
+        printf("Enter a data to insert in list: ");
         scanf("%d",&x);
-        append(&start,x);
+        insert(&start,x);
     }
     display(start);
     printf("Enter data to delete into the list: ");
     scanf("%d",&x);
-    //printf("position of %d is %d\n",x,search_node(start,x));
     del_any(&start,x);
     printf("After delete list is:\n");
     display(start);
@@ -174,26 +173,34 @@ void insert(struct node** ps,int x)
         *ps=p;
         return;
     }
-    if((*ps)->data>x && (*ps)->next==NULL)
+    temp=*ps;
+    //if(temp->next==NULL)
+    //
+     //   if(temp->data>x)
+     //   {
+     //       *ps=p;
+     //       (*ps)->next==temp;
+     //       return;
+     //   }
+     //   temp->next=p;
+     //   return;
+    //}
+    while(temp->next!=NULL)
+    {
+        prev=temp;
+        temp=temp->next;
+        if(prev->data<x && temp->data>x)
+        {
+            p->next=temp;
+            prev->next=p;
+            return;
+        }
+    }
+    if(temp->data>x)
     {
         p->next=*ps;
         *ps=p;
         return;
     }
-    temp=*ps;
-    while(temp->next!=NULL)
-    {
-        prev=temp;
-        temp=temp->next;
-
-    }
-
-    {
-        temp->next=p;
-    }
-    else{
-       p->next=temp;
-
-    }
-
+    temp->next=p;
 }
