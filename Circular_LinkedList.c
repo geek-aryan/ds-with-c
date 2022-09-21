@@ -11,28 +11,34 @@ void display(struct cnode*);
 //int search_node(struct node*,int);
 void del_first(struct cnode**);
 void del_last(struct cnode**);
-//void del_any(struct node**,int);
-//void insert(struct node**,int);
+void del_any(struct cnode**,int);
+void insert(struct cnode**,int);
 int main()
 {
     struct cnode* start=NULL;
     int x;
     for(int i=1;i<=5;i++)
     {
-        printf("Enter a data to append in list: ");
+        printf("Enter a data to insert in list: ");
         scanf("%d",&x);
-        append(&start,x);
+        insert(&start,x);
+    }
+    display(start);
+    for(int i=1;i<=5;i++)
+    {
+        printf("Enter a data to delete in list: ");
+        scanf("%d",&x);
+        del_any(&start,x);
+        display(start);
     }
 
-    display(start);
-
-    del_first(&start);
-    printf("After deleting first node into the list: \n");
-    display(start);
-
-    del_last(&start);
-    printf("After deleting first node into the list: \n");
-    display(start);
+//    del_first(&start);
+//    printf("After deleting first node into the list: \n");
+//    display(start);
+//
+//    del_last(&start);
+//    printf("After deleting first node into the list: \n");
+//    display(start);
     return 0;
 }
 void append(struct cnode** ps,int x)
@@ -139,80 +145,79 @@ void del_last(struct cnode **ps)
     free(temp);
     prev->next=*ps;
 }
-//void del_any(struct node **ps,int x)
-//{
-//    int result=search_node(*ps,x);
-//    int allnode=count_node(*ps);
-//    struct node *temp,*prev,*pnext=NULL;
-//    if(!result)
-//    {
-//        printf("List is empty\n");
-//        return;
-//    }
-//    if(result==-1)
-//    {
-//        printf("Data %d is not present in List\n",x);
-//        return;
-//    }
-//    if(result==1)
-//    {
-//        del_first(ps);
-//        return;
-//    }
-//    if(result==allnode)
-//    {
-//        del_last(ps);
-//        return;
-//    }
-//    temp=*ps;
-//    while(temp->data!=x)
-//    {
-//        prev=temp;
-//        temp=temp->next;
-//    }
-//    pnext=temp->next;
-//    free(temp);
-//    prev->next=pnext;
-//}
-//void insert(struct node** ps,int x)
-//{
-//    struct node *p,*temp,*prev;
-//    p=(struct node*)malloc(sizeof(struct node));
-//    p->data=x;
-//    p->next=NULL;
-//    if(*ps==NULL)
-//    {
-//        *ps=p;
-//        return;
-//    }
-//    temp=*ps;
-//    //if(temp->next==NULL)
-//    //
-//     //   if(temp->data>x)
-//     //   {
-//     //       *ps=p;
-//     //       (*ps)->next==temp;
-//     //       return;
-//     //   }
-//     //   temp->next=p;
-//     //   return;
-//    //}
-//    while(temp->next!=NULL)
-//    {
-//        prev=temp;
-//        temp=temp->next;
-//        if(prev->data<x && temp->data>x)
-//        {
-//            p->next=temp;
-//            prev->next=p;
-//            return;
-//        }
-//    }
-//    if(temp->data>x)
-//    {
-//        p->next=*ps;
-//        *ps=p;
-//        return;
-//    }
-//    temp->next=p;
-//}
+void del_any(struct cnode **ps,int x)
+{
+    struct cnode *temp,*prev;
+    if(*ps==NULL)
+    {
+        printf("List is empty\n");
+        return;
+    }
+    temp=*ps;
+    if((*ps)->data==x)
+    {
+        if((*ps)->next==*ps)
+        {
+            free(*ps);
+            *ps=NULL;
+            printf("Node is deleted\n");
+            return;
+        }
+        while(temp->next==*ps)
+        {
+            temp=temp->next;
+        }
+        *ps=(*ps)->next;
+        free(temp->next);
+        temp->next=*ps;
+        printf("Node is deleted\n");
+        return;
+    }
+    while(temp->next!=NULL && temp->data!=x)
+    {
+        prev=temp;
+        temp=temp->next;
+    }
+    if(temp->data==x)
+    {
+        prev->next=temp->next;
+        free(temp);
+        printf("Node is deleted\n");
+    }
+    else{
+        printf("Node not found!\n");
+    }
+}
+void insert(struct cnode** ps,int x)
+{
+    struct cnode *p,*temp,*prev;
+    p=(struct cnode*)malloc(sizeof(struct cnode));
+    p->data=x;
+    if(*ps==NULL)
+    {
+        p->next=p;
+        *ps=p;
+        return;
+    }
+    temp=*ps;
+    while(temp->next!=*ps)
+    {
+        prev=temp;
+        temp=temp->next;
+        if(prev->data<x && temp->data>x)
+        {
+            p->next=temp;
+            prev->next=p;
+            return;
+        }
+    }
+    if(temp->data>x)
+    {
+        p->next=temp->next;
+        *ps=p;
+        temp->next=p;
+        return;
+    }
+    p->next=*ps;
+    temp->next=p;
+}
