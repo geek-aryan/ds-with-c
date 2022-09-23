@@ -31,7 +31,7 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="Circular_LinkedList.c">
+		<Unit filename="Doubly_LinkedList.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Extensions>
