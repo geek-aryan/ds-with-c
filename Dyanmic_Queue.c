@@ -56,8 +56,10 @@ int del(struct queue** pf,struct queue** pr)
         printf("Queue is underflow\n");
         return -1;
     }
+    struct queue * temp=*pf;
     int x=(*pf)->data;
     *pf=(*pf)->next;
+    free(temp);
     if(*pf==NULL)
         *pr=NULL;
     return x;
