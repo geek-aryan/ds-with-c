@@ -31,7 +31,7 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="Doubly_LinkedList.c">
+		<Unit filename="Dyanmic_Queue.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Extensions>
