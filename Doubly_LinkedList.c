@@ -11,13 +11,16 @@ void display(struct doubly*);
 void del_first(struct doubly**);
 void del_last(struct doubly**);
 void del_any(struct doubly**,int);
-
+void insert(struct doubly**,int);
 int main()
 {
     struct doubly * start=NULL;
-    append(&start,10);
-    append(&start,20);
-    append(&start,30);
+    insert(&start,10);
+    insert(&start,5);
+    insert(&start,20);
+    insert(&start,30);
+    insert(&start,22);
+
     display(start);
 
 //    del_first(&start);
@@ -28,9 +31,9 @@ int main()
 //    printf("After del_last\n");
 //    display(start);
 
-    del_any(&start,40);
-    printf("After del_any\n");
-    display(start);
+//    del_any(&start,40);
+//    printf("After del_any\n");
+//    display(start);
 }
 void append(struct doubly **ps,int x)
 {
@@ -139,4 +142,39 @@ void del_any(struct doubly **ps,int x)
         printf("Node not found!\n");
     }
 
+}
+void insert(struct doubly** ps,int x)
+{
+    struct doubly *p,*temp,*prev;
+    p=(struct doubly*)malloc(sizeof(struct doubly));
+    if(p==NULL)
+    {
+        printf("Insufficiant memory\n");
+        return;
+    }
+    p->data=x;
+    if(*ps==NULL)
+    {
+        *ps=p;
+        (*ps)->prev=NULL;
+        (*ps)->next=NULL;
+        return;
+    }
+    if((*ps)->data>x)
+    {
+        p->prev=NULL;
+        p->next=*ps;
+        (*ps)->prev=p;
+        *ps=p;
+        return;
+    }
+    temp=*ps;
+    while(temp!=NULL && temp->data<x)
+    {
+        prev=temp;
+        temp=temp->next;
+    }
+    prev->next=p;
+    p->prev=prev;
+    p->next=temp;
 }
