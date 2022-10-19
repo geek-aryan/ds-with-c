@@ -31,7 +31,7 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="BST.c">
+		<Unit filename="DSF IN GRAPH.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Extensions>
